@@ -1,0 +1,112 @@
+git config --global user.name "mahe0243"
+git config --global.email "maheshparella243@gmail.com"
+git config list
+
+if already repo created on main branch and has some date, in lap you created new folder 
+mkdir welcome
+git init
+git remote add origin https://github.com/mahe0243/CFT.git
+touch abc
+git add .
+git commit -m "Added abc"
+git pull origin main --allow-unrelated-histories
+git push origin main
+
+or if you want to create a new branch
+git branch -m Mahesh  ->you can follow same
+
+git branch -d mahe          # Deletes local branch
+git push origin --delete mahe   # Deletes GitHub branch
+
+Master ->index.html, ReadME
+branch1 ->index.html, ReadME
+branch2 ->index.html, ReadME
+
+On Branch1:
+git checkout branch1
+touch welcome.txt
+git add . 
+git commit -m "welcomefile" 
+git push origin branch1
+
+On Branch2:
+git checkout branch2
+git pull origin branch1
+git push origin branch2 -->To push the new changes to GitHub
+
+On GitHub side, --> we can create "Compare & pull request" ->it will go to manager approvals and once he approve & commit merge pull request-->new changes will push to Master bransh
+but still git side, we need to do 
+
+git checkout master
+git pull origin master  ->now welcomefile has been added to local git as well.
+
+Git Merge Conflict:
+Master ->index.html ->this is from master -line-1
+branch1 ->index.html ->hi this is branch1 -line-1
+branch2
+
+in git local:
+git checkout branch1
+git merge master or git pull master -->you will see an error called merge conflict
+
+so we need to keep the one line and push it, here i would like keep the master code, so after changes we need to run
+
+git status
+git add .
+git commit -m "Resolved merge conflict"
+git push origin branch1
+
+git merge master -->success
+
+
+
+Merging: -
+Merge will give us extra commit id, and history is preserved, so you can check the origin of what happened in the branches.
+Create a new/another branch
+Do the changes in the branch
+Raise PR -Pull request
+Get the approval
+Then merge it
+Merge gives us a new merge commit which has 2 parents, we can clearly see the history
+Git log –oneline
+Git bash-
+----
+git checkout -b “branch-name”
+Made some changes
+Git add . 
+git commit -m “new changes are added” “branch-name”
+git push origin “branch-name”
+
+Git Rebase: -
+Change the base 
+No extra commit
+Commit id are changed (new commit id will create)
+No history is preserved; it is rewritten as if it is done in main branch
+Looks liner history
+
+Single branch:  Multiple persons are working  prefer merge
+If you want to keep the history  prefer merge
+Blindly go for merge. If you are not sure
+
+Single branch  single person  prefer to rebase
+If you don’t want history  prefer to rebase
+If you want clean structure  prefer to rebase
+
+Git log –oneline -
+Git cat-file sha-code -p 
+How to delete branch -> git checkout -d “branch-name”
+
+Conflicts: -
+When we are trying to merge the changes from one branch to another branch
+If git finds-out 2 different contents in the same line, it can’t take decision. People who wrote the code should sit together and resolve conflict.
+If main branch moves forward and another branch is trying to merge the changes, then conflict will come.
+
+
+
+
+
+
+
+git clone https://github.com/jaiswaladi246/Boardgame.git
+
+
