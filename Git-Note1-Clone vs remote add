@@ -1,0 +1,54 @@
+
+git clone         = Download repository for the first time
+git remote add    = Connect local repo to GitHub
+git pull          = Get latest changes from GitHub
+git push          = Send local changes to GitHub
+
+Scenario:
+like in my local git, i created directory
+mkdir Test
+i have repo in github account -named mahesh.git
+cd Test, i created few files test1, test2, test3
+so now i want to push/add
+so can i use git clone or git remote add ?
+
+Example1 --(if the GitHub repo already has files) 
+Ex: repo -> (mahesh.git) already contains a README or other files, do:
+mkdir Test
+cd Test
+git init
+git add .
+git commit -m "Initial commit"
+git remote add origin https://github.com/mahe0243/mahesh.git
+git pull origin main --allow-unrelated-histories
+git push origin main
+
+
+
+
+Example2:
+Why NOT git clone?
+
+git clone is used when you want to download an existing repository from GitHub.
+
+Ex: git clone https://github.com/mahe0243/mahesh.git
+
+Git will create a new folder under your working directory 
+mahesh/
+
+Now you'll have:
+Test/ <- your files
+mahesh/ <- cloned repo
+
+Your files inside Test are not automatically part of the cloned repo.
+You would then need to copy them:
+
+cp ../Test/* mahesh
+git add .
+git commit -m "Added files"
+git push origin main
+
+So for your case, cloning first is unnecessary.
+
+
+
